@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+</head>
+<body>
+    <div class="table-data">
+<h2>Display Data using Node.js & MySQL</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Unlock</th>
+        </tr>
+        
+        <%
+        if(musicData.length!=0){
+        musicData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.id %></td>
+            <td><%=data.title %></td>
+            <td><%=data.artist %></td>
+            <td><%=data.unlock %></td>
+        </tr>
+        <% }); } else{ %>
+            <tr>
+                <td colspan="4">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+</body>
+</html>

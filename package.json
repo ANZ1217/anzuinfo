@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "sudo npx pm2 start index.js"
+    "start": "sudo npx pm2 start app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.22"
   }
