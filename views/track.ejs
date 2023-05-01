@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+</head>
+<body>
+    <div class="table-data">
+<h2>Display Data using Node.js & MySQL</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Diff</th>
+            <th>Level</th>
+            <th>Effect</th>
+            <th>Illust</th>
+            <th>Unlock</th>
+        </tr>
+        
+        <%
+        if(musicData.length!=0){
+        musicData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.id %></td>
+            <td><img src="/images/<%=data.id %>.jpg" width="50"></td>
+            <td><%=data.diff %></td>
+            <td><%=data.level %></td>
+            <td><%=data.effect %></td>
+            <td><%=data.illust %></td>
+            <td><%=data.unlock %></td>
+        </tr>
+        <% }); } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+</body>
+</html>

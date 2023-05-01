@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const musicRouter = require('./routes/music');
+const trackRouter = require('./routes/track');
 
 const app = express();
 console.log("ASDF");
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/music', musicRouter);
+app.use('/track', trackRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
