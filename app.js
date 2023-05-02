@@ -3,13 +3,22 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors');
+
+let corsOptions = {
+  origin: "https://p.eagate.573.jp"
+}
 
 const indexRouter = require('./routes/index');
 const musicRouter = require('./routes/music');
 const trackRouter = require('./routes/track');
+const saveScoreRouter = require('./routes/saveScore');
+const renewalRouter = require('./routes/renewal');
 
 const app = express();
-console.log("ASDF");
+app.use(cors(corsOptions));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,9 +30,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/script', express.static(__dirname + "/public/javascripts"));
+
 app.use('/', indexRouter);
 app.use('/music', musicRouter);
 app.use('/track', trackRouter);
+app.use('/saveScore', saveScoreRouter);
+app.use('/renewal', renewalRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,1 @@
+javascript:(function(d,s){s=d.createElement('script');s.type='text/javascript';s.src='https://dev-anzuinfo.me/script/renewal.js';d.head.appendChild(s);})(document);
