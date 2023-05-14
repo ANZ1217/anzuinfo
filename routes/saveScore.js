@@ -47,18 +47,17 @@ router.post('/', function (req, res, next) {
     let id = userData[0].replace("SV", "").replace(/-/g, "");
     let name = userData[1];
     let skill = userData[3];
-    if (skill == "inf") skill = 12;
-    let skill2 = 0;
+    let wing = userData[4];
     let volforce = userData[2];
-    let playCount = userData[4];
+    let playCount = userData[5];
     let updateTime = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
 
-    const userQuery = "INSERT INTO user (id, name, skill, skill2, volforce, playcount, updatetime) VALUES ("
-        + id + ", \"" + name + "\", " + skill + ", " + skill2 + ", " + volforce
+    const userQuery = "INSERT INTO user (id, name, skill, wing, volforce, playcount, updatetime) VALUES ("
+        + id + ", \"" + name + "\", " + skill + ", " + wing + ", " + volforce
         + ", " + playCount + ", \"" + updateTime + "\") ON DUPLICATE KEY UPDATE "
         + "name = \"" + name + "\", "
         + "skill = " + skill + ", "
-        + "skill2 = " + skill2 + ", "
+        + "wing = " + wing + ", "
         + "volforce = " + volforce + ", "
         + "playcount = " + playCount + ", "
         + "updatetime = \"" + updateTime + "\"";
@@ -101,6 +100,7 @@ router.post('/', function (req, res, next) {
     let str = id + "<br>"
         + name + "<br>"
         + skill + "<br>"
+        + wing + "<br>"
         + volforce + "<br>"
         + playCount + "<br>"
         + updateTime + "<br><br>"
